@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_bmi/icon_widget.dart';
+import 'package:my_bmi/reusable_card.dart';
+
+const Color cardColor = Colors.teal;
+Widget child = Container();
 
 class InputPage extends StatefulWidget {
   @override
@@ -20,21 +26,31 @@ class _InputPageState extends State<InputPage> {
     return Row(
       children: [
         Expanded(
-          child: Container(
-            margin: EdgeInsets.all(15.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              color: Colors.teal,
+          child: GestureDetector(
+            child: ReusableCard(
+              color: cardColor,
+              child: IconWidget(
+                icon: FontAwesomeIcons.mars,
+                label: "MALE",
+              ),
             ),
+            onTap: () {
+              print("tapped");
+            },
           ),
         ),
         Expanded(
-          child: Container(
-            margin: EdgeInsets.all(15.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              color: Colors.teal,
+          child: GestureDetector(
+            child: ReusableCard(
+              color: cardColor,
+              child: IconWidget(
+                icon: FontAwesomeIcons.venus,
+                label: "FEMALE",
+              ),
             ),
+            onTap: () {
+              print("tapped");
+            },
           ),
         ),
       ],
@@ -48,12 +64,9 @@ class _InputPageState extends State<InputPage> {
     return Row(
       children: [
         Expanded(
-          child: Container(
-            margin: EdgeInsets.all(15.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              color: Colors.teal,
-            ),
+          child: ReusableCard(
+            color: cardColor,
+            child: child,
           ),
         ),
       ],
@@ -67,21 +80,15 @@ class _InputPageState extends State<InputPage> {
     return Row(
       children: [
         Expanded(
-          child: Container(
-            margin: EdgeInsets.all(15.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              color: Colors.teal,
-            ),
+          child: ReusableCard(
+            color: cardColor,
+            child: child,
           ),
         ),
         Expanded(
-          child: Container(
-            margin: EdgeInsets.all(15.0),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              color: Colors.teal,
-            ),
+          child: ReusableCard(
+            color: cardColor,
+            child: child,
           ),
         ),
       ],

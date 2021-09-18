@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_bmi/enums.dart';
 import 'package:my_bmi/icon_widget.dart';
 import 'package:my_bmi/reusable_card.dart';
 
@@ -10,17 +11,8 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Color cardColor = Colors.teal;
-  Color maleCardColor = Colors.teal;
-  Color femaleCardColor = Colors.teal;
+  Gender selectGender = Gender.NOT_SELECTED;
   Widget child = Container();
-
-  void updateColor(
-      {Color maleCardColor: Colors.teal, Color femaleCardColor: Colors.teal}) {
-    setState(() {
-      this.maleCardColor = maleCardColor;
-      this.femaleCardColor = femaleCardColor;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,32 +30,34 @@ class _InputPageState extends State<InputPage> {
         Expanded(
           child: GestureDetector(
             child: ReusableCard(
-              color: maleCardColor,
+              color:
+                  selectGender == Gender.MALE ? Colors.blueGrey : Colors.teal,
               child: IconWidget(
                 icon: FontAwesomeIcons.mars,
                 label: "MALE",
               ),
             ),
             onTap: () {
-              updateColor(
-                maleCardColor: Colors.blueGrey,
-              );
+              setState(() {
+                selectGender = Gender.MALE;
+              });
             },
           ),
         ),
         Expanded(
           child: GestureDetector(
             child: ReusableCard(
-              color: femaleCardColor,
+              color:
+                  selectGender == Gender.FEMALE ? Colors.blueGrey : Colors.teal,
               child: IconWidget(
                 icon: FontAwesomeIcons.venus,
                 label: "FEMALE",
               ),
             ),
             onTap: () {
-              updateColor(
-                femaleCardColor: Colors.blueGrey,
-              );
+              setState(() {
+                selectGender = Gender.FEMALE;
+              });
             },
           ),
         ),

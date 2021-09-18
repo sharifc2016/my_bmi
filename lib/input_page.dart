@@ -3,15 +3,25 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_bmi/icon_widget.dart';
 import 'package:my_bmi/reusable_card.dart';
 
-const Color cardColor = Colors.teal;
-Widget child = Container();
-
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
 }
 
 class _InputPageState extends State<InputPage> {
+  Color cardColor = Colors.teal;
+  Color maleCardColor = Colors.teal;
+  Color femaleCardColor = Colors.teal;
+  Widget child = Container();
+
+  void updateColor(
+      {Color maleCardColor: Colors.teal, Color femaleCardColor: Colors.teal}) {
+    setState(() {
+      this.maleCardColor = maleCardColor;
+      this.femaleCardColor = femaleCardColor;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,28 +38,32 @@ class _InputPageState extends State<InputPage> {
         Expanded(
           child: GestureDetector(
             child: ReusableCard(
-              color: cardColor,
+              color: maleCardColor,
               child: IconWidget(
                 icon: FontAwesomeIcons.mars,
                 label: "MALE",
               ),
             ),
             onTap: () {
-              print("tapped");
+              updateColor(
+                maleCardColor: Colors.blueGrey,
+              );
             },
           ),
         ),
         Expanded(
           child: GestureDetector(
             child: ReusableCard(
-              color: cardColor,
+              color: femaleCardColor,
               child: IconWidget(
                 icon: FontAwesomeIcons.venus,
                 label: "FEMALE",
               ),
             ),
             onTap: () {
-              print("tapped");
+              updateColor(
+                femaleCardColor: Colors.blueGrey,
+              );
             },
           ),
         ),

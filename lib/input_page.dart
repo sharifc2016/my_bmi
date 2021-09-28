@@ -70,7 +70,37 @@ class _InputPageState extends State<InputPage> {
           child: ReusableCard(
             onPress: () {},
             color: cardColor,
-            child: child,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "HEIGHT",
+                  style: TextStyle(
+                    fontSize: 18.0,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: [
+                    Text(
+                      "180",
+                      style: TextStyle(
+                        fontSize: 70,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    Text(
+                      "CM",
+                      style: TextStyle(
+                        fontSize: 18,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ],

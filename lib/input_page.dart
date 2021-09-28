@@ -28,37 +28,32 @@ class _InputPageState extends State<InputPage> {
     return Row(
       children: [
         Expanded(
-          child: GestureDetector(
-            child: ReusableCard(
-              color:
-                  selectGender == Gender.MALE ? Colors.blueGrey : Colors.teal,
-              child: IconWidget(
-                icon: FontAwesomeIcons.mars,
-                label: "MALE",
-              ),
-            ),
-            onTap: () {
+          child: ReusableCard(
+            onPress: () {
               setState(() {
                 selectGender = Gender.MALE;
               });
             },
+            color: selectGender == Gender.MALE ? Colors.blueGrey : Colors.teal,
+            child: IconWidget(
+              icon: FontAwesomeIcons.mars,
+              label: "MALE",
+            ),
           ),
         ),
         Expanded(
-          child: GestureDetector(
-            child: ReusableCard(
-              color:
-                  selectGender == Gender.FEMALE ? Colors.blueGrey : Colors.teal,
-              child: IconWidget(
-                icon: FontAwesomeIcons.venus,
-                label: "FEMALE",
-              ),
-            ),
-            onTap: () {
+          child: ReusableCard(
+            onPress: () {
               setState(() {
                 selectGender = Gender.FEMALE;
               });
             },
+            color:
+                selectGender == Gender.FEMALE ? Colors.blueGrey : Colors.teal,
+            child: IconWidget(
+              icon: FontAwesomeIcons.venus,
+              label: "FEMALE",
+            ),
           ),
         ),
       ],
@@ -73,6 +68,7 @@ class _InputPageState extends State<InputPage> {
       children: [
         Expanded(
           child: ReusableCard(
+            onPress: () {},
             color: cardColor,
             child: child,
           ),
@@ -89,12 +85,14 @@ class _InputPageState extends State<InputPage> {
       children: [
         Expanded(
           child: ReusableCard(
+            onPress: () {},
             color: cardColor,
             child: child,
           ),
         ),
         Expanded(
           child: ReusableCard(
+            onPress: () {},
             color: cardColor,
             child: child,
           ),

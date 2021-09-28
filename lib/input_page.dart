@@ -11,6 +11,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Color cardColor = Colors.teal;
+  int height = 120;
   Gender selectGender = Gender.NOT_SELECTED;
   Widget child = Container();
 
@@ -85,7 +86,7 @@ class _InputPageState extends State<InputPage> {
                   textBaseline: TextBaseline.alphabetic,
                   children: [
                     Text(
-                      "180",
+                      height.toString(),
                       style: TextStyle(
                         fontSize: 70,
                         fontWeight: FontWeight.w900,
@@ -99,6 +100,25 @@ class _InputPageState extends State<InputPage> {
                     ),
                   ],
                 ),
+                SliderTheme(
+                  data: SliderTheme.of(context).copyWith(
+                    activeTrackColor: Colors.white,
+                    thumbColor: Colors.pink,
+                    overlayColor: Colors.pink.shade300,
+                    thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                    overlayShape: RoundSliderOverlayShape(overlayRadius: 22.0),
+                  ),
+                  child: Slider(
+                      value: height.toDouble(),
+                      min: 120.0,
+                      max: 220.0,
+                      inactiveColor: Colors.white60,
+                      onChanged: (double h) {
+                        setState(() {
+                          height = h.toInt();
+                        });
+                      }),
+                )
               ],
             ),
           ),
